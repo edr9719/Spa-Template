@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background-light text-spa-dark antialiased;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.grayscale-map {
+  filter: grayscale(100%) invert(90%) contrast(90%);
+}
+
+@keyframes whatsappEntrance {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  20% {
+    transform: translateY(-8px) scale(1.04);
+  }
+  40% {
+    transform: translateY(0) scale(1);
+  }
+  60% {
+    transform: translateY(-4px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.floating-whatsapp {
+  animation: whatsappEntrance 1.2s ease-out 1;
+  bottom: calc(5rem + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 640px) {
+  .floating-whatsapp {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  }
+}
